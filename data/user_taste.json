@@ -1,0 +1,11 @@
+{
+  "default": {
+    "spicy": 7,
+    "sweet": 3,
+    "garlic": 1,
+    "coriander": -1,
+    "veg_preference": 1,
+    "street_food": 10,
+    "healthy": 10
+  }
+}

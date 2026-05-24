@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+pillow
+numpy
+scikit-learn
+opencv-python
+openai
+
+transformers
+torch
+torchvision
+torchaudio

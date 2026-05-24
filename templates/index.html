@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FridgeWhizz</title>
+  <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+ 
+
+  <h1>🍳 FridgeWhizz</h1>
+  <form action="/analyze" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="user_id" value="default">
+    
+    <label>Upload fridge image:</label>
+    <input type="file" name="file" required><br><br>
+
+    <label>Mood:</label>
+    <select name="mood">
+      <option>Lazy</option>
+      <option>Stressed</option>
+      <option>Happy</option>
+      <option>Energetic</option>
+    </select><br><br>
+
+    <label>Diet:</label>
+    <select name="diet">
+      <option>Veg</option>
+      <option>Non-Veg</option>
+      <option>Jain</option>
+      <option>Vegan</option>
+    </select><br><br>
+
+    <label>Cooking Skill:</label>
+    <select name="skill">
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Expert</option>
+    </select><br><br>
+
+    <label>Mode:</label>
+    <select name="mode">
+      <option>Normal</option>
+      <option>Lazy</option>
+    </select><br><br>
+
+    <button type="submit">Predict Recipes 🔮</button>
+  </form>
+
+  <!-- 🌟 Floating food movement animation -->
+ 
+</body>
+</html>

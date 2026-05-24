@@ -1,0 +1,234 @@
+/* ====== GLOBAL RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ====== BODY ====== */
+body {
+  background: linear-gradient(135deg, rgba(245, 236, 224, 0.9), rgba(238, 224, 204, 0.9)),
+              url('/static/images/cafe-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #4a3f35;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Add a soft overlay for dreamy effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px) brightness(1.05);
+  z-index: -1;
+}
+
+/* ====== HEADINGS ====== */
+h1 {
+  font-size: 3rem;
+  color: #6a4e42;
+  text-shadow: 0 2px 6px rgba(106, 78, 66, 0.25);
+  margin-bottom: 10px;
+  animation: floatIn 1.4s ease forwards;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #5a473d;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  animation: fadeInUp 1.6s ease;
+}
+
+/* ====== TEXT ====== */
+p {
+  font-size: 1rem;
+  color: #76685e;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 700px;
+  animation: fadeInUp 1.6s ease;
+}
+
+/* ====== RECIPE CONTAINER ====== */
+.recipe-output {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(80, 60, 40, 0.15);
+  padding: 35px;
+  max-width: 900px;
+  width: 90%;
+  margin-top: 40px;
+  backdrop-filter: blur(10px) saturate(110%);
+  transform: perspective(1000px) rotateX(5deg);
+  transition: all 0.6s ease;
+  animation: slideUp 1.2s ease forwards;
+}
+
+.recipe-output:hover {
+  transform: perspective(900px) rotateX(0deg) translateY(-5px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(106, 78, 66, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ====== BUTTONS ====== */
+button, a.button {
+  background: linear-gradient(135deg, #a7795d, #c59f83);
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 25px;
+  box-shadow: 0 5px 15px rgba(167, 121, 93, 0.35);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after, a.button::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+button:hover::after, a.button:hover::after {
+  left: 130%;
+}
+
+button:hover, a.button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #c59f83, #a7795d);
+  box-shadow: 0 8px 25px rgba(167, 121, 93, 0.45);
+}
+
+/* ====== INPUTS ====== */
+input, select {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: 1px solid #d6c7b2;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+input:focus, select:focus {
+  border-color: #b08b6a;
+  box-shadow: 0 0 10px rgba(160, 115, 85, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* ====== FLOATING COFFEE ELEMENTS ====== */
+.coffee-bean {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.15;
+  animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(15deg); }
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(-25px) rotateX(15deg); }
+  to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 700px) {
+  h1 { font-size: 2.2rem; }
+  .recipe-output { padding: 25px; }
+  button { width: 100%; }
+}
+/* ====== FLOATING FOOD BACKGROUND ====== */
+.floating-food {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so you can still click through */
+  overflow: hidden;
+  z-index: -2;
+}
+
+.food-item {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.12;
+  animation: floatFood 18s ease-in-out infinite;
+}
+
+.food-item:nth-child(odd) {
+  animation-duration: 22s;
+}
+
+.food-item:nth-child(even) {
+  animation-duration: 26s;
+}
+
+@keyframes floatFood {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-50px) rotate(10deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+  }
+  75% {
+    transform: translateY(30px) rotate(15deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Optional gentle drift across screen */
+@keyframes drift {
+  0% { transform: translateX(-10vw); }
+  100% { transform: translateX(110vw); }
+}
+
+

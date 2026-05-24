@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suggested Recipes</title>
+  <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+  <h1>🥦 Detected Ingredients</h1>
+  <p>{{ ingredients | join(', ') }}</p>
+
+  <h2>🍛 Suggested Recipes (based on your mood & taste)</h2>
+
+  <div class="recipe-output" style="white-space: pre-wrap; text-align: center; font-size: 18px; line-height: 1.6;">
+    {{ recipes }}
+  </div>
+
+  <hr>
+
+  <h3 style="text-align:center;">How was this suggestion?</h3>
+  <form action="/feedback" method="post" style="text-align:center; margin-top:15px;">
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+    <button type="submit" name="feedback" value="like">👍 Loved it</button>
+    <button type="submit" name="feedback" value="dislike">👎 Not my vibe</button>
+  </form>
+
+  <div style="text-align:center; margin-top:20px;">
+    <a href="/">🔙 Try Again</a>
+  </div>
+</body>
+</html>
